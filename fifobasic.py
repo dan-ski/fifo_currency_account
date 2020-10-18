@@ -27,13 +27,20 @@ class FifoBasic(object):
                 print("Proszę podaj liczbę całkowitą.")
                 continue
 
-        print("Wybrałeś(aś): ", user_input)
+        #optional: print("Wybrałeś(aś): ", user_input)
         return user_input
 
     def provide_float(self, question):
-        user_input = float(input(question))
+
+        user_input = input(question)
+        if "," in user_input:
+            user_input= user_input.replace(",", ".")
+
+        user_input = float(user_input)
+
         while not isinstance(user_input, float):
             user_input = float(input(question))
+
         return user_input
 
     def choose_currency_tab_A(self):
@@ -112,7 +119,7 @@ class FifoBasic(object):
         table_date = rate_data_0["effectiveDate"]
         exchange_rate = rate_data_0["mid"]
 
-        print("Tabela nr: ", table_no)
+        print("\nTabela nr: ", table_no)
         print("Z dnia: ", table_date)
         print("1", currency, "= ", exchange_rate)
 

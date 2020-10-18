@@ -10,7 +10,7 @@ class DbCommunication(object):
 
         conn = sqlite3.connect(db_name)
 
-        print("Utworzono połączenie z: ", db_name)
+        print("Utworzono połączenie z: ", db_name, "\n")
 
         return conn
 
@@ -90,6 +90,14 @@ class BankAccount(DbCommunication):
 
     # Adds an incoming transaction to bank statement
     def add_incoming(self, transaction_data):
+
+        fifo_basic = FifoBasic()
+
+        choice = fifo_basic.yes_or_no("Zastosować kurs ostatniego dnia roboczego przed transakcją? [t/n]", ["t", "n"])
+
+        if choice == "n":
+            transaction_data[0] = fifo_basic.provide_float("Proszę podaj kurs waluty "
+                                                           "(do czterech miejsc po przecinku): ")
 
         # access to columns through index and names
         self.conn.row_factory = sqlite3.Row

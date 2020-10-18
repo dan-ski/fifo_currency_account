@@ -10,7 +10,7 @@ from datetime import date
 
 from data_base_communication import DbCommunication, BankAccount
 
-print("Program Maciek 1.0")
+print("Program Maciek 1.0\n")
 
 
 def account_operations(account, rate, operation_date, rate_date):
@@ -25,7 +25,7 @@ def account_operations(account, rate, operation_date, rate_date):
         5- zakończ pracę""")
 
         fifo_basic = FifoBasic()
-        choice = fifo_basic.choose_int("Proszę wpisz numer odpowiadający danej opcji: ", 5)
+        choice = fifo_basic.choose_int("\nProszę wpisz numer odpowiadający danej opcji: ", 5)
 
         if choice == 1:
             print("Wypływy z konta proszę wprowadzać jako liczby ujemne.")
@@ -63,16 +63,11 @@ def main():
 
     all_accounts = db_com.accounts_list(conn)
     accounts_number = len(all_accounts)
-    try:
-        print(all_accounts[0])
-    except IndexError:
-        print("Brak otwartych rachunków\n")
-
     print("0 : nowy rachunek")
 
     fifo_basic = FifoBasic()
 
-    chosen_account = fifo_basic.choose_int("Proszę wybierz konto (numer mu odpowiadający):", accounts_number)
+    chosen_account = fifo_basic.choose_int("\nProszę wybierz konto (numer mu odpowiadający):", accounts_number)
 
     while chosen_account == 0:
         currency = fifo_basic.choose_currency_tab_A()
@@ -84,7 +79,7 @@ def main():
         chosen_account = fifo_basic.choose_int("Proszę wybierz konto (numer mu odpowiadający):", accounts_number)
 
     chosen_account_name = all_accounts[chosen_account-1]
-    print("Wybrałeś", chosen_account_name)
+    print("\nWybrałeś(aś)", chosen_account_name)
 
     # getting currency name from table name
     split_name = chosen_account_name.split("_")
@@ -94,7 +89,7 @@ def main():
 
     today = date.today()
     statement_date = fifo_basic.last_weekday(today)
-    question = "Wprowadzasz wyciąg bankowy z {} ? [t/n]".format(str(statement_date))
+    question = "\nWprowadzasz wyciąg bankowy z {} ? [t/n]".format(str(statement_date))
     answer = fifo_basic.yes_or_no(question, ["t", "n"])
     if answer == "n":
         statement_date = fifo_basic.provide_date()
@@ -103,10 +98,10 @@ def main():
     last_weekday = fifo_basic.last_weekday(statement_date)
     bank_statement_rate = fifo_basic.nbp_exchange_rate(currency, last_weekday)
 
-    print("Bieżące saldo rachunku", chosen_account_name, " to: ", account.currency_sum())
+    print("\nBieżące saldo rachunku", chosen_account_name, " to: ", account.currency_sum())
 
     account_operations(account, bank_statement_rate, statement_date, last_weekday)
 
 
 main()
-input("Aby zakończyć, proszę naciśnij enter")
+input("\nAby zakończyć, proszę naciśnij enter")
