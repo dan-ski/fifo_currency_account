@@ -12,7 +12,10 @@ When we have to record an outoing transaction we "take" the amount which came fi
 
 To keep track of the exchange rates we were using Excel spreadsheets inputing data manually. The program helps to automate some proceses, so the task becomes less time consuming and hepls to avoid typical mistakes when inserting data manually. 
 
-The program was created taking under account needs in certain company in certain job, so it may not be suitable for otcher organisations, but still may be helpful in some way, especially after some adapting changes. 
+The program was created taking under account needs in certain company in certain job, so it may not be suitable for otcher organisations, but still may be helpful in some way, especially after adapting changes.
 
+## Technlologies
 
-
+The program is created with:
+- Python version 3.8.5
+- SQLITE version 3.31.1
