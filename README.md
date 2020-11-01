@@ -24,4 +24,29 @@ The program is created with:
 
 To run this project download file fifo.exe from "dist" folder, and open it. 
 
+## Features
+
+List of current features: 
+
+- enables to register multiple bank accounts
+- saves history of transactions
+- saves history of transaction settlement
+- establishes last workday (taking under account weekends and polish holidays)
+- downloads exchange rate of account's currency form National Bank of Poland (Narodowy Bank Polski)
+- shows current amout of money on chosen account
+
+To-do list:
+
+- error corrections
+- export to Excel spreadsheets
+- graphical user interface
+
+## Status
+
+Project in progress. 
+
+## Contact
+
+Feel free to contact me: szt.danski@gmail.com
+
 
