@@ -19,3 +19,7 @@ The program was created taking under account needs in certain company in certain
 The program is created with:
 - Python version 3.8.5
 - SQLITE version 3.31.1
+
+## Setup
+
+To run this project download 
