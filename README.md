@@ -22,4 +22,6 @@ The program is created with:
 
 ## Setup
 
-To run this project download 
+To run this project download file fifo.exe from "dist" folder, and open it. 
+
+
