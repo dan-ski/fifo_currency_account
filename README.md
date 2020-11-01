@@ -45,6 +45,10 @@ To-do list:
 
 Project in progress. 
 
+## License
+
+This project is licensed under General Public Licence.  
+
 ## Contact
 
 Feel free to contact me: szt.danski@gmail.com
